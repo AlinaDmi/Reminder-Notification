@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: reminder-notification
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/reminder_db}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  jackson:
+    time-zone: UTC
+
+reminder:
+  max-attempts: 3
+  retry-delay-seconds: 60
+  scheduler-delay-ms: 5000
+  webhook-timeout-ms: 3000
+  async:
+    core-pool-size: 4
+    max-pool-size: 8
+    queue-capacity: 100
+    thread-name-prefix: reminder-dispatch-
+
+logging:
+  level:
+    com.example.reminder: INFO
