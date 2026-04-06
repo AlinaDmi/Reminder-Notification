@@ -119,9 +119,7 @@ curl -X POST http://localhost:8080/api/reminders/1/retry
 ./gradlew test
 ```
 
-Покрытие включает:
-
+Покрытие:
 - unit test для `ReminderService`
 - unit test выбора `NotificationSender` в `ReminderDispatchService`
-- integration test для `ReminderController`
-- integration test для `WebhookNotificationSender` с mock server
+- integration test для `ReminderController` и `WebhookNotificationSender`
